@@ -1,7 +1,7 @@
 package com.Harevich.core.mapper;
 
 import com.Harevich.core.model.Clothes;
-import com.Harevich.core.model.ClothesRequest;
+import com.Harevich.core.dto.ClothesRequest;
 
 public class ClothesMapper {
     public static Clothes toClothes(ClothesRequest request){

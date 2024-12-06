@@ -1,9 +1,8 @@
 package com.Harevich.core.service;
 
-import com.Harevich.core.exception.ClothesNotFoundException;
 import com.Harevich.core.mapper.ClothesMapper;
 import com.Harevich.core.model.Clothes;
-import com.Harevich.core.model.ClothesRequest;
+import com.Harevich.core.dto.ClothesRequest;
 import jakarta.persistence.EntityNotFoundException;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;

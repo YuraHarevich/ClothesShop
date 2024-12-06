@@ -1,7 +1,7 @@
 package com.Harevich.core.controller;
 
 import com.Harevich.core.model.Clothes;
-import com.Harevich.core.model.ClothesRequest;
+import com.Harevich.core.dto.ClothesRequest;
 import com.Harevich.core.service.ClothesService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;

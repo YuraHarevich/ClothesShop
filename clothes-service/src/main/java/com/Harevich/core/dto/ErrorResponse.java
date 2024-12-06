@@ -1,4 +1,4 @@
-package com.Harevich.core.model;
+package com.Harevich.core.dto;
 
 import java.util.Map;
 

@@ -1,5 +1,6 @@
-package com.Harevich.core.model;
+package com.Harevich.core.dto;
 
+import com.Harevich.core.model.Size;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.persistence.EnumType;
