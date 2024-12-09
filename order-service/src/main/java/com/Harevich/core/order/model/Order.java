@@ -1,5 +1,6 @@
 package com.Harevich.core.order.model;
 
+import com.Harevich.core.orderline.model.OrderLine;
 import jakarta.persistence.*;
 import lombok.*;
 import org.springframework.data.annotation.CreatedDate;
@@ -18,6 +19,7 @@ import java.util.List;
 @Setter
 @Entity
 @EntityListeners(AuditingEntityListener.class)
+@Table(name = "customer_order")
 public class Order {
     @Id
     @GeneratedValue
@@ -25,7 +27,7 @@ public class Order {
 
     private BigDecimal totalAmount;
 
-    @OneToMany(mappedBy = "order")
+    @OneToMany(mappedBy = "order",fetch = FetchType.EAGER)
     private List<OrderLine> orderLines;
 
     @CreatedDate

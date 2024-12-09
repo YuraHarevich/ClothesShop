@@ -3,7 +3,7 @@ server:
 spring:
   datasource:
     driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql://ms_pg_sql:5434/order
+    url: jdbc:postgresql://localhost:5434/orders
     username: postgres
     password: password
   jpa:
@@ -18,8 +18,17 @@ spring:
 #      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
 #      properties:
 #        spring.json.type.mapping: orderConfirmation:ru.Harevich.order.kafka.OrderConfirmation
+  kafka:
+    topic:
+      supply: supply-topic
+    producer:
+      bootstrap-server: localhost:9092
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+      properties:
+        spring.json.type.mapping: orderConfirmation:ru.Harevich.order.kafka.OrderConfirmation
 application:
   config:
-    clothes-url: http://gateway:8222/api/v1/clothes
-    order-url: http://gateway:8222/api/v1/orders
+    clothes-url: http://localhost:8222/api/v1/clothes
+    order-url: http://localhost:8222/api/v1/orders
 

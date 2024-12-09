@@ -1,5 +1,6 @@
 package com.Harevich.core.mapper;
 
+import com.Harevich.core.dto.ClothesResponse;
 import com.Harevich.core.model.Clothes;
 import com.Harevich.core.dto.ClothesRequest;
 
@@ -13,10 +14,9 @@ public class ClothesMapper {
                 .availableQuantity(request.availableQuantity())
                 .build();
     }
-    public static ClothesRequest toClothesRequest(Clothes clothes){
-        return new ClothesRequest(
-                clothes.getName(),
-                clothes.getColor(),
+    public static ClothesResponse toClothesResponse(Clothes clothes){
+        return new ClothesResponse(
+                clothes.getId(),
                 clothes.getSize(),
                 clothes.getPrice(),
                 clothes.getAvailableQuantity()

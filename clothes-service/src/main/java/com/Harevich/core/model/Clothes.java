@@ -22,4 +22,7 @@ public class Clothes {
     private Size size;
     private BigDecimal price;
     private Integer availableQuantity;
+    public void reduceAvailableQuantity(Integer quantity){
+        availableQuantity-=quantity;
+    }
 }

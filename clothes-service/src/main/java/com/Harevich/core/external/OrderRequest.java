@@ -1,6 +1,5 @@
-package com.Harevich.core.order.dto;
+package com.Harevich.core.external;
 
-import com.Harevich.core.orderline.dto.OrderLineRequest;
 import jakarta.validation.constraints.NotEmpty;
 
 import java.util.List;

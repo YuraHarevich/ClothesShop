@@ -1,4 +1,5 @@
-package com.Harevich.core.order.model;
+package com.Harevich.core.orderline.model;
+import com.Harevich.core.order.model.Order;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -15,6 +16,6 @@ public class OrderLine {
     @ManyToOne
     @JoinColumn(name = "order_id")
     private Order order;
-    private Integer productId;
-    private double quantity;
+    private Long clothesId;
+    private Integer quantity;
 }

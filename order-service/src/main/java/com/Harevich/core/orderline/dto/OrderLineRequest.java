@@ -1,11 +1,11 @@
-package com.Harevich.core.order.dto;
+package com.Harevich.core.orderline.dto;
 
 import jakarta.validation.constraints.Positive;
 
 public record OrderLineRequest (
         @Positive(message="product id must be positive")
-        Integer productId,
+        Long clothesId,
         @Positive(message="quantity must be positive")
-        double quantity
+        Integer quantity
 ){
 }

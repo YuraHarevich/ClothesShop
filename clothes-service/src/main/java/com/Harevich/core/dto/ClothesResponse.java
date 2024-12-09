@@ -1,7 +1,7 @@
-package com.Harevich.core.order.dto;
+package com.Harevich.core.dto;
+import com.Harevich.core.model.Size;
 
 
-import com.Harevich.core.clothes.model.Size;
 
 import java.math.BigDecimal;
 
