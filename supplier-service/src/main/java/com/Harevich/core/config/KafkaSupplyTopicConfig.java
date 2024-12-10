@@ -10,7 +10,7 @@ import org.springframework.kafka.config.TopicBuilder;
 @Configuration
 @RequiredArgsConstructor
 public class KafkaSupplyTopicConfig {
-    @Value("${spring.kafka.topic.supply}")
+    @Value("${spring.kafka.topic.clothes}")
     private String topic;
     @Bean
     public NewTopic orderTopic(){

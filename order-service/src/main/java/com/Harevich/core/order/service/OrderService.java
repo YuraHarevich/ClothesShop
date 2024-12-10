@@ -26,14 +26,11 @@ public class OrderService {
        Order order = OrderMapper.toOrder(orderRequest);
        order.setTotalAmount(countTotal(orderRequest));
        List<OrderLineRequest> errors= clothesClient.purchaseClothes(orderRequest).errorOrderLines();
-        if(errors!=null)
+        if(errors==null) {
             return Optional.of(repository.saveAndFlush(order));
+        }
         else
-            throw new RunOutOfClothesException("run out of clothes with id: "+errors
-                    .stream()
-                    .map(request -> request.clothesId())
-                    .toList());
-
+            throw new RunOutOfClothesException(errors);
 
         //todo проблема если завпрос на покупку отправлен, а ответ не приходит
     }

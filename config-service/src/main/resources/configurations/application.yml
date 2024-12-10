@@ -6,3 +6,7 @@ spring:
   cloud:
     config:
       override.system-properties: false
+management:
+  zipkin:
+    tracing:
+      endpoint: http://localhost:9411/api/v2/spans

@@ -11,13 +11,8 @@ spring:
       ddl-auto: create
     database: postgresql
     database-platform: org.hibernate.dialect.PostgreSQLDialect
-#  kafka:
-#    producer:
-#      bootstrap-server: ms_kafka:9092
-#      key-serializer: org.apache.kafka.common.serialization.StringSerializer
-#      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
-#      properties:
-#        spring.json.type.mapping: orderConfirmation:ru.Harevich.order.kafka.OrderConfirmation
+
+
   kafka:
     topic:
       supply: supply-topic
@@ -26,7 +21,7 @@ spring:
       key-serializer: org.apache.kafka.common.serialization.StringSerializer
       value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
       properties:
-        spring.json.type.mapping: orderConfirmation:ru.Harevich.order.kafka.OrderConfirmation
+        spring.json.type.mapping: supplyRequest:com.Harevich.core.order.dto.SupplyRequest
 application:
   config:
     clothes-url: http://localhost:8222/api/v1/clothes

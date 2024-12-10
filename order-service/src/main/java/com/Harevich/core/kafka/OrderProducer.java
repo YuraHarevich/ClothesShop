@@ -15,7 +15,7 @@ import org.springframework.stereotype.Service;
 @Slf4j
 public class OrderProducer {
     private final KafkaTemplate<String,SupplyRequest> kafkaTemplate;
-    @Value("${kafka.topic.supply}")
+    @Value("${spring.kafka.topic.supply}")
     private String topic;
     public void sendOrderConfirmation(SupplyRequest supplyRequest){
         log.info("Sending supply request");

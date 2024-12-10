@@ -1,6 +1,18 @@
 server:
   port: 8010
 spring:
+  kafka:
+    topic:
+      clothes: clothes-topic
+    consumer:
+      bootstrap-servers: localhost:9092
+      group-id: clothesGroup
+      auto-offset-reset: earliest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+      properties:
+        spring.json.trusted.packages: '*'
+        spring.json.type.mapping: clothesSupply:com.Harevich.core.kafka.ClothesSupply
   datasource:
     driver-class-name: org.postgresql.Driver
     url: jdbc:postgresql://localhost:5433/clothes

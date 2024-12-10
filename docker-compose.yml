@@ -71,7 +71,17 @@ services:
       KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://localhost:9092
     networks:
       - microservices-net
-
+  zipkin:
+    container_name: zipkin
+    image: openzipkin/zipkin
+    ports:
+      - 9411:9411
+    healthcheck:
+      test: wget --no-verbose --tries=1 --spider http://localhost:9411/actuator/health || exit 1
+      interval: 15s
+      timeout: 5s
+      start_period: 15s
+      retries: 5
 
 networks:
   microservices-net:

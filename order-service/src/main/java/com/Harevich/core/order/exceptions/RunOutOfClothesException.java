@@ -1,10 +1,19 @@
 package com.Harevich.core.order.exceptions;
 
-import lombok.Data;
-import lombok.EqualsAndHashCode;
+import com.Harevich.core.orderline.dto.OrderLineRequest;
+import lombok.*;
 
-@EqualsAndHashCode(callSuper = true)
-@Data
+import java.util.List;
+@Getter
+@Setter
 public class RunOutOfClothesException extends RuntimeException {
-    private final String message;
+    private List<OrderLineRequest> errors;
+    private String message;
+    public RunOutOfClothesException(List<OrderLineRequest> errors) {
+        this.errors = errors;
+        message = "run out of clothes with id: "+errors
+                .stream()
+                .map(request -> request.clothesId())
+                .toList();
+    }
 }

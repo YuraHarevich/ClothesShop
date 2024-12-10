@@ -1,14 +1,16 @@
 package com.Harevich.core.service;
 
+import com.Harevich.core.dto.ClothesRequest;
 import com.Harevich.core.dto.ClothesResponse;
 import com.Harevich.core.external.OrderLineRequest;
 import com.Harevich.core.external.OrderRequest;
 import com.Harevich.core.external.OrderResponse;
+import com.Harevich.core.kafka.ClothesSupply;
 import com.Harevich.core.mapper.ClothesMapper;
 import com.Harevich.core.model.Clothes;
-import com.Harevich.core.dto.ClothesRequest;
 import jakarta.persistence.EntityNotFoundException;
 import lombok.AllArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import com.Harevich.core.repository.ClothesRepository;
 
@@ -18,6 +20,7 @@ import java.util.Optional;
 
 @Service
 @AllArgsConstructor
+@Slf4j
 public class ClothesService {
     private final ClothesRepository repository;
     public List<Clothes> findAll(){
@@ -32,6 +35,20 @@ public class ClothesService {
     public Long createClothes(ClothesRequest request) {
         return repository.saveAndFlush(ClothesMapper
                 .toClothes(request)).getId();
+    }
+    public void supplyClothes(ClothesSupply clothesSupply){
+        clothesSupply.orderLines()
+                .stream()
+                .forEach(orderLineRequest -> {
+                    Optional<Clothes> optional = repository.findById(orderLineRequest.clothesId());
+                    if(optional.isPresent()) {
+                        int temp = optional.get().getAvailableQuantity();
+                        optional.get().setAvailableQuantity(orderLineRequest.quantity()+temp);
+                        repository.save(optional.get());
+                    }
+                    else
+                        log.info("Such clothes with id {} wont be supplied",orderLineRequest.clothesId());
+                });
     }
 
     public List<OrderLineRequest> checkClothes(OrderRequest request) {
