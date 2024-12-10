@@ -9,11 +9,11 @@ import org.springframework.kafka.config.TopicBuilder;
 
 @Configuration
 @RequiredArgsConstructor
-public class KafkaSupplyTopicConfig {
+public class KafkaNotificationTopicConfig {
     @Value("${spring.kafka.topic.supply}")
     private String topic;
     @Bean
-    public NewTopic notificationTopic(){
+    public NewTopic orderTopic(){
         return TopicBuilder
                 .name(topic)
                 .build();

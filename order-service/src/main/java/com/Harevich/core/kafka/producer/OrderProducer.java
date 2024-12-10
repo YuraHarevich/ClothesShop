@@ -1,4 +1,4 @@
-package com.Harevich.core.kafka;
+package com.Harevich.core.kafka.producer;
 
 import com.Harevich.core.order.dto.SupplyRequest;
 import lombok.RequiredArgsConstructor;

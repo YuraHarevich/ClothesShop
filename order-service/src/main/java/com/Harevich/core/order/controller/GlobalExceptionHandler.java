@@ -1,6 +1,6 @@
 package com.Harevich.core.order.controller;
 
-import com.Harevich.core.kafka.OrderProducer;
+import com.Harevich.core.kafka.producer.OrderProducer;
 import com.Harevich.core.order.dto.ErrorResponse;
 import com.Harevich.core.order.dto.SupplyRequest;
 import com.Harevich.core.order.exceptions.RunOutOfClothesException;

@@ -16,12 +16,13 @@ spring:
   kafka:
     topic:
       supply: supply-topic
+      notification: notification-topic
     producer:
       bootstrap-server: localhost:9092
       key-serializer: org.apache.kafka.common.serialization.StringSerializer
       value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
       properties:
-        spring.json.type.mapping: supplyRequest:com.Harevich.core.order.dto.SupplyRequest
+        spring.json.type.mapping: supplyRequest:com.Harevich.core.order.dto.SupplyRequest,orderNotification:com.Harevich.core.kafka.OrderNotification
 application:
   config:
     clothes-url: http://localhost:8222/api/v1/clothes
