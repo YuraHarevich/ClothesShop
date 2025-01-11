@@ -41,13 +41,9 @@ public class ClothesService {
                 .stream()
                 .forEach(orderLineRequest -> {
                     Optional<Clothes> optional = repository.findById(orderLineRequest.clothesId());
-                    if(optional.isPresent()) {
                         int temp = optional.get().getAvailableQuantity();
                         optional.get().setAvailableQuantity(orderLineRequest.quantity()+temp);
                         repository.save(optional.get());
-                    }
-                    else
-                        log.info("Such clothes with id {} wont be supplied",orderLineRequest.clothesId());
                 });
     }
 

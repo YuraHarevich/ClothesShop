@@ -20,7 +20,7 @@ public class OrderNotificationConsumer {
     private String notificationTopic;
 
     private final KafkaTemplate<String, OrderNotification> kafkaTemplate;
-    @KafkaListener(topics = "supply-topic")
+    @KafkaListener(topics = "notification-topic")
     public void consumeSupplyRequests(OrderNotification orderNotification)throws MessagingException {
         log.info("Consuming the message from topic {} for order {}",notificationTopic,orderNotification.orderId());
     }

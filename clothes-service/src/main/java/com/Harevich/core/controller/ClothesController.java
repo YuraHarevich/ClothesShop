@@ -23,7 +23,6 @@ import java.util.stream.Collectors;
 @Tag(name = "Clothes")
 public class ClothesController {
     private final ClothesService service;
-
     @GetMapping
     @Operation(summary = "finds all clothes", description = "returns all available clothes")
     public ResponseEntity<List<ClothesResponse>> findAllClothes(){

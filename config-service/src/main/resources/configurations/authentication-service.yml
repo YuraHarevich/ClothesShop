@@ -1,0 +1,27 @@
+server:
+  port: 8060
+spring:
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: "http://${keycloak.domain}:8080/realms/${keycloak.realm}"
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5435/postgres
+    username: postgres
+    password: password
+  jpa:
+    hibernate:
+      ddl-auto: update
+    database: postgresql
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+
+
+keycloak:
+  domain: localhost
+  adminClientId: client-api
+  adminClientSecret: 6js0TZeHwDohmE2cW37iTPTiriSkg96z
+  urls:
+    auth: http://${keycloak.domain}:8080
+  realm: hello-mir
